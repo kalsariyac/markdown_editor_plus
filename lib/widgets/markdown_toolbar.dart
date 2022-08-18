@@ -20,6 +20,21 @@ class MarkdownToolbar extends StatelessWidget {
   final VoidCallback? onActionCompleted;
   final String? markdownSyntax;
 
+  final bool showClearFieldButton;
+  final bool showResetTextButton;
+  final bool showSelectSingleLineButton;
+  final bool showBoldButton;
+  final bool showItalicButton;
+  final bool showStrikethroughButton;
+  final bool showHeadingButton;
+  final bool showUnorderButton;
+  final bool showCheckboxButton;
+  final bool showLinkButton;
+  final bool showImageButton;
+  final bool showBlockquoteButton;
+  final bool showCodeButton;
+  final bool showLineButton;
+
   const MarkdownToolbar({
     Key? key,
     this.onPreviewChanged,
@@ -32,8 +47,22 @@ class MarkdownToolbar extends StatelessWidget {
     this.toolbarBackground,
     this.expandableBackground,
     this.onActionCompleted,
-    this.showPreviewButton = true,
-    this.showEmojiSelection = true,
+    this.showPreviewButton = false,
+    this.showEmojiSelection = false,
+    this.showClearFieldButton = false,
+    this.showResetTextButton = false,
+    this.showSelectSingleLineButton = false,
+    this.showBoldButton = true,
+    this.showItalicButton = true,
+    this.showStrikethroughButton = true,
+    this.showHeadingButton = false,
+    this.showUnorderButton = false,
+    this.showCheckboxButton = false,
+    this.showLinkButton = false,
+    this.showImageButton = false,
+    this.showBlockquoteButton = false,
+    this.showCodeButton = false,
+    this.showLineButton = false,
   }) : super(key: key);
 
   @override
@@ -56,6 +85,7 @@ class MarkdownToolbar extends StatelessWidget {
               ),
 
             // Clear the field
+            if (showLineButton)
             ToolbarItem(
               key: const ValueKey<String>("toolbar_clear_action"),
               icon: FontAwesomeIcons.trashCan,
@@ -67,6 +97,7 @@ class MarkdownToolbar extends StatelessWidget {
             ),
 
             // Reset the text field
+            if (showResetTextButton)
             ToolbarItem(
               key: const ValueKey<String>("toolbar_reset_action"),
               icon: FontAwesomeIcons.arrowRotateLeft,
@@ -80,6 +111,7 @@ class MarkdownToolbar extends StatelessWidget {
             ),
 
             // select single line
+            if (showSelectSingleLineButton)
             ToolbarItem(
               key: const ValueKey<String>("toolbar_selection_action"),
               icon: FontAwesomeIcons.textWidth,
@@ -90,6 +122,7 @@ class MarkdownToolbar extends StatelessWidget {
               tooltip: 'Select single line',
             ),
             // bold
+            if (showBoldButton)
             ToolbarItem(
               key: const ValueKey<String>("toolbar_bold_action"),
               icon: FontAwesomeIcons.bold,
@@ -100,6 +133,7 @@ class MarkdownToolbar extends StatelessWidget {
               },
             ),
             // italic
+            if (showItalicButton)
             ToolbarItem(
               key: const ValueKey<String>("toolbar_italic_action"),
               icon: FontAwesomeIcons.italic,
@@ -110,6 +144,7 @@ class MarkdownToolbar extends StatelessWidget {
               },
             ),
             // strikethrough
+            if (showStrikethroughButton)
             ToolbarItem(
               key: const ValueKey<String>("toolbar_strikethrough_action"),
               icon: FontAwesomeIcons.strikethrough,
@@ -120,6 +155,7 @@ class MarkdownToolbar extends StatelessWidget {
               },
             ),
             // heading
+            if (showHeadingButton)
             ToolbarItem(
               key: const ValueKey<String>("toolbar_heading_action"),
               icon: FontAwesomeIcons.heading,
@@ -167,6 +203,7 @@ class MarkdownToolbar extends StatelessWidget {
               ],
             ),
             // unorder list
+            if (showUnorderButton)
             ToolbarItem(
               key: const ValueKey<String>("toolbar_unorder_list_action"),
               icon: FontAwesomeIcons.listUl,
@@ -177,6 +214,7 @@ class MarkdownToolbar extends StatelessWidget {
               },
             ),
             // checkbox list
+            if (showCheckboxButton)
             ToolbarItem(
               key: const ValueKey<String>("toolbar_checkbox_list_action"),
               icon: FontAwesomeIcons.listCheck,
@@ -214,6 +252,7 @@ class MarkdownToolbar extends StatelessWidget {
                 },
               ),
             // link
+            if (showLinkButton)
             ToolbarItem(
               key: const ValueKey<String>("toolbar_link_action"),
               icon: FontAwesomeIcons.link,
@@ -230,6 +269,7 @@ class MarkdownToolbar extends StatelessWidget {
               },
             ),
             // image
+            if (showImageButton)
             ToolbarItem(
               key: const ValueKey<String>("toolbar_image_action"),
               icon: FontAwesomeIcons.image,
@@ -249,6 +289,7 @@ class MarkdownToolbar extends StatelessWidget {
               },
             ),
             // blockquote
+            if (showBlockquoteButton)
             ToolbarItem(
               key: const ValueKey<String>("toolbar_blockquote_action"),
               icon: FontAwesomeIcons.quoteLeft,
@@ -259,6 +300,7 @@ class MarkdownToolbar extends StatelessWidget {
               },
             ),
             // code
+            if (showCodeButton)
             ToolbarItem(
               key: const ValueKey<String>("toolbar_code_action"),
               icon: FontAwesomeIcons.code,
@@ -269,6 +311,7 @@ class MarkdownToolbar extends StatelessWidget {
               },
             ),
             // line
+            if (showLineButton)
             ToolbarItem(
               key: const ValueKey<String>("toolbar_line_action"),
               icon: FontAwesomeIcons.rulerHorizontal,
